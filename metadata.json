@@ -1,0 +1,5 @@
+{
+  "name": "To-Do List harian Naufal",
+  "description": "A smart to-do list application that helps you manage your tasks. It uses Gemini to suggest new tasks when you're looking for inspiration.",
+  "requestFramePermissions": []
+}
