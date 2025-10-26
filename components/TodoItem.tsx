@@ -24,6 +24,12 @@ const PriorityIndicator: React.FC<{ priority: Priority }> = ({ priority }) => {
 }
 
 export const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete }) => {
+  const handleDelete = () => {
+    if (window.confirm(`Are you sure you want to delete the task: "${todo.text}"?`)) {
+      onDelete(todo.id);
+    }
+  };
+
   return (
     <li className="flex items-center bg-slate-800 p-4 rounded-lg mb-2 transition-colors duration-300 hover:bg-slate-700/50">
       <PriorityIndicator priority={todo.priority} />
@@ -41,7 +47,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete }) 
         {todo.text}
       </span>
       <button
-        onClick={() => onDelete(todo.id)}
+        onClick={handleDelete}
         className="text-slate-500 hover:text-red-500 transition-colors duration-200"
         aria-label={`Delete task: ${todo.text}`}
       >
